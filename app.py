@@ -303,10 +303,11 @@ with st.sidebar:
             st.info("📭 Aucune conversation sauvegardée pour le moment")
 
 # Récupération de la clé API
-api_key = st.secrets.get("OPENROUTER_API_KEY")
-
-if not api_key:
+try:
+    api_key = st.secrets["OPENROUTER_API_KEY"]
+except KeyError:
     st.error("❌ Configuration manquante : OPENROUTER_API_KEY")
+    st.info("Veuillez ajouter votre clé API OpenRouter dans les secrets Streamlit Cloud.")
     st.stop()
 
 # Initialisation du client
