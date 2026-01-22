@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+.streamlit/secrets.toml
+conversations.json
+.env
+*.egg-info/
+dist/
+build/
